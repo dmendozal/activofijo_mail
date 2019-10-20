@@ -5,7 +5,7 @@
  */
 package Email;
 
-import Negocio.NEstado;
+import Negocio.NMantenimiento;
 import Nucleo.procesador.Anacom;
 import Nucleo.utilidades.Herramientas;
 
@@ -13,23 +13,29 @@ import Nucleo.utilidades.Herramientas;
  *
  * @author D-M-7
  */
-public class MailEstado extends TemplateMail{
-    private NEstado o;
+public class MailMantenimiento extends TemplateMail {
 
-    public MailEstado() throws Exception{
-        this.o = new NEstado();
+    private NMantenimiento o;
+
+    public MailMantenimiento() throws Exception {
+        this.o = new NMantenimiento();
     }
 
     @Override
     protected boolean insertar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            String sigla = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
+            String fecha_ingreso = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
             anacom.Avanzar();
             anacom.Avanzar();
-            String nombre = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
-
-            o.add(sigla,nombre);
+            String fecha_devolucion = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
+            anacom.Avanzar();
+            anacom.Avanzar();
+            int fkidactivo = anacom.Preanalisis().getAtributo();
+            anacom.Avanzar();
+            anacom.Avanzar();
+            int fkidempresa = anacom.Preanalisis().getAtributo();
+            o.add(fecha_ingreso, fecha_devolucion, fkidactivo, fkidempresa);
             return true;
         } catch (Exception e) {
             return false;
@@ -37,17 +43,23 @@ public class MailEstado extends TemplateMail{
     }
 
     @Override
-    protected boolean modificar(Anacom anacom, String correo) throws Exception{
+    protected boolean modificar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
             int idestado = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            String sigla = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
+            String fecha_ingreso = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
             anacom.Avanzar();
             anacom.Avanzar();
-            String nombre = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
-            o.update(idestado, sigla, nombre);
+            String fecha_devolucion = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
+            anacom.Avanzar();
+            anacom.Avanzar();
+            int fkidactivo = anacom.Preanalisis().getAtributo();
+            anacom.Avanzar();
+            anacom.Avanzar();
+            int fkidempresa = anacom.Preanalisis().getAtributo();
+            o.update(idestado, fecha_ingreso, fecha_devolucion, fkidactivo, fkidempresa);
             return true;
         } catch (Exception e) {
             return false;
@@ -55,7 +67,7 @@ public class MailEstado extends TemplateMail{
     }
 
     @Override
-    protected boolean eliminar(Anacom anacom, String correo) throws Exception{
+    protected boolean eliminar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
             int id = anacom.Preanalisis().getAtributo();
@@ -70,14 +82,14 @@ public class MailEstado extends TemplateMail{
     protected String listar() throws Exception {
         try {
             return o.Mostrar();
-        } catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
 
     @Override
     protected String messageCreate(boolean sw) {
-        return (sw) ? "Contenido registrado exitosamente con id: "  + o.getInfo().toString() : "No se pudo registrar el contenido";
+        return (sw) ? "Contenido registrado exitosamente con id: " + o.getInfo().toString() : "No se pudo registrar el contenido";
 
     }
 
@@ -97,3 +109,4 @@ public class MailEstado extends TemplateMail{
         return (sw) ? "Listado de contenidos: " : "No se pudo encontrar en listado de contenidos";
     }
 }
+

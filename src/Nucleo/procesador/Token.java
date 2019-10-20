@@ -23,10 +23,21 @@ public class Token {
     public static final int LISTARESTADO = 22;
     public static final int ELIMINARESTADO = 23;
      
+    public static final int INSERTARMANTENIMIENTO = 24;
+    public static final int EDITARMANTENIMIENTO = 25;
+    public static final int LISTARMANTENIMIENTO = 26;
+    public static final int ELIMINARMANTENIMIENTO = 27;
     
+    public static final int INSERTARBIEN = 28;
+    public static final int EDITARBIEN = 29;
+    public static final int LISTARBIEN = 30;
+    public static final int ELIMINARBIEN = 31;
     
+    public static final int INSERTARACTIVO = 32;
+    public static final int EDITARACTIVO = 33;
+    public static final int LISTARACTIVO = 34;
+    public static final int ELIMINARACTIVO = 35;
     
-
     private int nombre;
     private int atributo;
     private String toStr;

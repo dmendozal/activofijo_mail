@@ -5,7 +5,7 @@
  */
 package Negocio;
 
-import Datos.DEstado;
+import Datos.DBien;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,22 +13,22 @@ import java.util.List;
  *
  * @author D-M-7
  */
-public class NEstado {
+public class NBien {
 
-    private DEstado o;
+    private DBien o;
 
-    public NEstado() throws Exception {
-        this.o = new DEstado();
+    public NBien() throws Exception {
+        this.o = new DBien();
     }
 
-    public DEstado getInfo() {
+    public DBien getInfo() {
         return o;
     }
 
-    public void add(String sigla, String nombre) throws Exception {
+    public void add(String nombre, String descripcion) throws Exception {
         try {
-            o.setSigla(sigla);
             o.setNombre(nombre);
+            o.setDescripcion(descripcion);
             o.setEstado(1);
             o.add();
         } catch (Exception e) {
@@ -36,11 +36,11 @@ public class NEstado {
         }
     }
 
-    public void update(int id, String sigla, String nombre) throws Exception {
+    public void update(int id, String nombre, String descripcion) throws Exception {
         try {
-            o.setIdestado(id);
+            o.setIdbien(id);
             o.setNombre(nombre);
-            o.setSigla(sigla);
+            o.setDescripcion(descripcion);
             o.update();
         } catch (Exception e) {
             throw e;
@@ -49,7 +49,7 @@ public class NEstado {
 
     public void delete(int id) throws Exception {
         try {
-            o.setIdestado(id);
+            o.setIdbien(id);
             o.delete();
         } catch (Exception e) {
             throw e;
@@ -57,17 +57,16 @@ public class NEstado {
 
     }
 
-    private List<DEstado> getAll() throws Exception {
-        List<DEstado> ob = new ArrayList<>();
+    private List<DBien> getAll() throws Exception {
+        List<DBien> ob = new ArrayList<>();
         List<Object> lista = (List<Object>) this.o.getAll();
         try {
             for (Object objecto : lista) {
                 List<Object> obj = (List<Object>) objecto;
-                DEstado oo = new DEstado();
-
-                oo.setNombre(obj.get(0).toString());
-                oo.setSigla(obj.get(1).toString());
-
+                DBien oo = new DBien();
+                oo.setIdbien(Integer.valueOf(obj.get(0).toString()));
+                oo.setNombre(obj.get(1).toString());
+                oo.setDescripcion(obj.get(2).toString());
                 ob.add(oo);
             }
         } catch (Exception e) {
@@ -79,22 +78,24 @@ public class NEstado {
     public String Mostrar() throws Exception {
         String rx = "";
         try {
-            List<DEstado> lObj = this.getAll();
+            List<DBien> lObj = this.getAll();
 
-            rx = "<center><h2>LISTA DE ESTADOS</h2></center><br>";
+            rx = "<center><h2>LISTA DE BIENES</h2></center><br>";
             rx += " <table style=\"width:100%; border-style: outset; text-align: left;\" >"
                     + "             <thead>\n"
                     + "                   <tr >\n"
-                    + "                         <th>SIGLA</th>\n"
+                    + "                         <th>ID</th>\n"
                     + "                         <th>NOMBRE</th>\n"
+                    + "                         <th>DESCRIPCION</th>\n"
                     + "                   </tr>\n"
                     + "             </thead>\n"
                     + "                  <tbody> ";
-            for (DEstado obj : lObj) {
+            for (DBien obj : lObj) {
                 rx = rx
                         + "<tr style=\"\">\n"
+                        + "   <td>" + obj.getIdbien() + "</td>\n"
                         + "   <td>" + obj.getNombre() + "</td>\n"
-                        + "   <td>" + obj.getSigla() + "</td>\n"
+                        + "   <td>" + obj.getDescripcion() + "</td>\n"
                         + "</tr>\n";
             }
             rx += "  </tbody>\n"

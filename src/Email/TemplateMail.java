@@ -12,7 +12,7 @@ public abstract class TemplateMail {
 
         if (token.getNombre() == Token.HELP) {
 //            ClienteSMTP.sendMail(email, "AYUDAS - MARKETING", comandHelp);
-            ClienteSMTP.sendMailHTML(email, "AYUDAS - MARKETING", comandHelp);
+            ClienteSMTP.sendMailHTML(email, "AYUDAS - ACTIVOFIJOS", comandHelp);
             System.out.println(comandHelp);
             return true;
         }

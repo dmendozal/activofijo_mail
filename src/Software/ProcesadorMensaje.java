@@ -16,6 +16,9 @@ import Nucleo.utilidades.Ayuda;
 public class ProcesadorMensaje {
 
     private MailEstado mail_estado = new MailEstado();
+    private MailMantenimiento mail_mantenimiento = new MailMantenimiento();
+    private MailBien mail_bien = new MailBien();
+    private MailActivo mail_activo = new MailActivo();
 
     public ProcesadorMensaje() throws Exception {
     }
@@ -45,7 +48,7 @@ public class ProcesadorMensaje {
 
         if (token.getNombre() == Token.HELP) {
             // Mostrar Ayudas
-            ClienteSMTP.sendMail(destinatario, "Ayudas - Marketing\n el formato es COMANDO[\"texto\",numero,...]", Ayuda.HELP_GLOBAL);
+            ClienteSMTP.sendMail(destinatario, "Ayudas - ActivoFijo\n el formato es COMANDO[\"texto\",numero,...]", Ayuda.HELP_GLOBAL);
             //System.out.println(Ayuda.HELP_GLOBAL);
             return;
         }
@@ -62,6 +65,42 @@ public class ProcesadorMensaje {
                 break;
             case Token.ELIMINARESTADO:
                 mail_estado.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.INSERTARMANTENIMIENTO:
+                mail_mantenimiento.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARMANTENIMIENTO:
+                mail_mantenimiento.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARMANTENIMIENTO:
+                mail_mantenimiento.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARMANTENIMIENTO:
+                mail_mantenimiento.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.INSERTARBIEN:
+                mail_bien.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARBIEN:
+                mail_bien.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARBIEN:
+                mail_bien.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARBIEN:
+                mail_bien.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.INSERTARACTIVO:
+                mail_activo.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARACTIVO:
+                mail_activo.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARACTIVO:
+                mail_activo.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARACTIVO:
+                mail_activo.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 break;
             default:
                 break;
