@@ -28,7 +28,27 @@ public class LCC {
             "INSERTARACTIVO",
             "EDITARACTIVO",
             "LISTARACTIVO",
-            "ELIMINARACTIVO"
+            "ELIMINARACTIVO",
+            ///Modulo Estado
+            "INSERTARESTADO",
+            "EDITARESTADO",
+            "LISTARESTADO",
+            "ELIMINARESTADO",
+            ///Modulo Usuario
+            "INSERTARUSUARIO",
+            "EDITARUSUARIO",
+            "LISTARUSUARIO",
+            "ELIMINARUSUARIO",
+            ///Modulo Asignacion
+            "INSERTARASIGNACION",
+            "EDITARASIGNACION",
+            "ELIMINARASIGNACION",
+            "LISTARASIGNACION",
+            ///Modulo INVENTARIO
+            "INSERTARINVENTARIO",
+            "EDITARINVENTARIO",
+            "ELIMINARINVENTARIO",
+            "LISTARINVENTARIO"
     ));
 
     private static final LinkedList<Token> tokens = new LinkedList<>(Arrays.asList(
@@ -54,7 +74,28 @@ public class LCC {
             new Token(Token.FUNC, Token.INSERTARACTIVO, "INSERTARACTIVO"),
             new Token(Token.FUNC, Token.EDITARACTIVO, "EDITARACTIVO"),
             new Token(Token.FUNC, Token.LISTARACTIVO, "LISTARACTIVO"),
-            new Token(Token.FUNC, Token.ELIMINARACTIVO, "ELIMINARACTIVO")
+            new Token(Token.FUNC, Token.ELIMINARACTIVO, "ELIMINARACTIVO"),
+
+            new Token(Token.FUNC, Token.INSERTARESTADO, "INSERTARESTADO"),
+            new Token(Token.FUNC, Token.EDITARESTADO, "EDITARESTADO"),
+            new Token(Token.FUNC, Token.LISTARESTADO, "LISTARESTADO"),
+            new Token(Token.FUNC, Token.ELIMINARESTADO, "ELIMINARESTADO"),
+            //Modulo Usuario
+            new Token(Token.FUNC, Token.INSERTARUSUARIO, "INSERTARUSUARIO"),
+            new Token(Token.FUNC, Token.EDITARUSUARIO, "EDITARUSUARIO"),
+            new Token(Token.FUNC, Token.LISTARUSUARIO, "LISTARUSUARIO"),
+            new Token(Token.FUNC, Token.ELIMINARUSUARIO, "ELIMINARUSUARIO"),
+            //Modulo Asignacion
+            new Token(Token.FUNC, Token.INSERTARASIGNACION, "INSERTARASIGNACION"),
+            new Token(Token.FUNC, Token.EDITARASIGNACION, "EDITARASIGNACION"),
+            new Token(Token.FUNC, Token.ELIMINARASIGNACION, "ELIMINARASIGNACION"),
+            new Token(Token.FUNC, Token.LISTARASIGNACION, "LISTARASIGNACION"),
+            ///Modulo Inventario
+            new Token(Token.FUNC, Token.INSERTARINVENTARIO, "INSERTARASIGNACION"),
+            new Token(Token.FUNC, Token.EDITARINVENTARIO, "EDITARINVENTARIO"),
+            new Token(Token.FUNC, Token.ELIMINARINVENTARIO, "ELIMINARINVENTARIO"),
+            new Token(Token.FUNC, Token.LISTARINVENTARIO, "LISTARINVENTARIO")
+
     ));
 
     public static Token estaEnLCC(String lexema) {

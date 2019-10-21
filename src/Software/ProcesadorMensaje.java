@@ -19,6 +19,9 @@ public class ProcesadorMensaje {
     private MailMantenimiento mail_mantenimiento = new MailMantenimiento();
     private MailBien mail_bien = new MailBien();
     private MailActivo mail_activo = new MailActivo();
+    private MailUsuario mail_usaurio = new MailUsuario();
+    private MailAsignacion mail_asignacion = new MailAsignacion();
+    private Mailinventario mail_inventario=new Mailinventario();
 
     public ProcesadorMensaje() throws Exception {
     }
@@ -101,6 +104,44 @@ public class ProcesadorMensaje {
                 break;
             case Token.ELIMINARACTIVO:
                 mail_activo.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+            ///Modulo Usuario
+            case Token.INSERTARUSUARIO:
+                mail_usaurio.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARUSUARIO:
+                mail_usaurio.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARUSUARIO:
+                mail_usaurio.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARUSUARIO:
+                mail_usaurio.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            ///Modulo Asignaciones
+            case Token.INSERTARASIGNACION:
+                mail_asignacion.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARASIGNACION:
+                mail_asignacion.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARASIGNACION:
+                mail_asignacion.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARASIGNACION:
+                mail_asignacion.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            ///Modulo Inventario
+            case Token.INSERTARINVENTARIO:
+                mail_inventario.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARINVENTARIO:
+                mail_inventario.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARINVENTARIO:
+                mail_inventario.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARINVENTARIO:
+                mail_inventario.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 break;
             default:
                 break;

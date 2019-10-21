@@ -1,6 +1,5 @@
 package Nucleo.procesador;
 
-
 public class Token {
 
     public static final int NUM = 0; // Numero Valor
@@ -17,7 +16,6 @@ public class Token {
     public static final int HELP = 11;
     public static final int HELPGLOBAL = 12;
 
-    
     public static final int INSERTARESTADO = 20;
     public static final int EDITARESTADO = 21;
     public static final int LISTARESTADO = 22;
@@ -38,6 +36,24 @@ public class Token {
     public static final int LISTARACTIVO = 34;
     public static final int ELIMINARACTIVO = 35;
     
+    ///Modulo Usuario
+    public static final int INSERTARUSUARIO = 50;
+    public static final int EDITARUSUARIO = 51;
+    public static final int LISTARUSUARIO = 52;
+    public static final int ELIMINARUSUARIO = 53;
+
+    ///Modulo Asignacion
+    public static final int INSERTARASIGNACION = 54;
+    public static final int EDITARASIGNACION = 55;
+    public static final int ELIMINARASIGNACION = 56;
+    public static final int LISTARASIGNACION = 57;
+
+    ///Modulo Inventario
+    public static final int INSERTARINVENTARIO = 58;
+    public static final int EDITARINVENTARIO = 59;
+    public static final int ELIMINARINVENTARIO = 60;
+    public static final int LISTARINVENTARIO = 61;
+
     private int nombre;
     private int atributo;
     private String toStr;
