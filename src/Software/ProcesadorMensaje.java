@@ -25,6 +25,7 @@ public class ProcesadorMensaje {
     private MailCargo mail_cargo = new MailCargo();
     private MailEmpresa mail_empresa = new MailEmpresa();
     private MailUbicacion mail_ubicacion = new MailUbicacion();
+    private MailReportes mail_reporte = new MailReportes();
 
     public ProcesadorMensaje() throws Exception {
     }
@@ -181,6 +182,9 @@ public class ProcesadorMensaje {
                 break;
             case Token.LISTARUBICACION:
                 mail_ubicacion.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARREPORTE:
+                mail_reporte.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 break;
             default:
                 break;

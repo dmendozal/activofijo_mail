@@ -71,27 +71,32 @@ public class MailAsignacion extends TemplateMail {
 
     @Override
     protected String listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            try {
+            return asignacion.Mostrar();
+        } catch (Exception e){
+            throw e;
+        }
+    
     }
 
     @Override
     protected String messageCreate(boolean sw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (sw) ? "Contenido registrado exitosamente con id: "  + asignacion.getInfo().toString() : "No se pudo registrar el contenido";
     }
 
     @Override
     protected String messageEdit(boolean sw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (sw) ? "Contenido modificado exitosamente con id: " + asignacion.getInfo().toString() : "No se pudo modificar el contenido";
     }
 
     @Override
     protected String messageRemove(boolean sw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (sw) ? "Contenido eliminado exitosamente con id: " + asignacion.getInfo().toString() : "No se pudo eliminar el contenido";
     }
 
     @Override
     protected String messageFindAll(boolean sw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (sw) ? "Listado de contenidos: " : "No se pudo encontrar en listado de contenidos";
     }
 
 }

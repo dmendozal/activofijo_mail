@@ -82,12 +82,14 @@ public class NAsignacion {
         try {
             List<Objeto> lObj = this.getAll();
 
-            rx = "<center><h2>LISTA DE TIPO DE OFERTAS</h2></center><br>";
+            rx = "<center><h2>LISTA DE ASIGNACIONES</h2></center><br>";
             rx += " <table style=\"width:100%; border-style: outset; text-align: left;\" >"
                     + "             <thead>\n"
                     + "                   <tr >\n"
-                    + "                         <th>SIGLA</th>\n"
                     + "                         <th>NOMBRE</th>\n"
+                    + "                         <th>CODIGO</th>\n"
+                    + "                         <th>NOMBRE DEL BIEN</th>\n"  
+                    + "                         <th>DESCRIPCION</th>\n"
                     + "                   </tr>\n"
                     + "             </thead>\n"
                     + "                  <tbody> ";

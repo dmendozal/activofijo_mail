@@ -83,8 +83,8 @@ public class NInventario {
             rx += " <table style=\"width:100%; border-style: outset; text-align: left;\" >"
                     + "             <thead>\n"
                     + "                   <tr >\n"
-                    + "                         <th>SIGLA</th>\n"
-                    + "                         <th>NOMBRE</th>\n"
+                    + "                         <th>Activo</th>\n"
+                    + "                         <th>Cantidad</th>\n"
                     + "                   </tr>\n"
                     + "             </thead>\n"
                     + "                  <tbody> ";
