@@ -21,7 +21,10 @@ public class ProcesadorMensaje {
     private MailActivo mail_activo = new MailActivo();
     private MailUsuario mail_usaurio = new MailUsuario();
     private MailAsignacion mail_asignacion = new MailAsignacion();
-    private Mailinventario mail_inventario=new Mailinventario();
+    private Mailinventario mail_inventario = new Mailinventario();
+    private MailCargo mail_cargo = new MailCargo();
+    private MailEmpresa mail_empresa = new MailEmpresa();
+    private MailUbicacion mail_ubicacion = new MailUbicacion();
 
     public ProcesadorMensaje() throws Exception {
     }
@@ -142,6 +145,42 @@ public class ProcesadorMensaje {
                 break;
             case Token.LISTARINVENTARIO:
                 mail_inventario.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.INSERTARCARGO:
+                mail_cargo.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARCARGO:
+                mail_cargo.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARCARGO:
+                mail_cargo.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARCARGO:
+                mail_cargo.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.INSERTAREMPRESA:
+                mail_empresa.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITAREMPRESA:
+                mail_empresa.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINAREMPRESA:
+                mail_empresa.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTAREMPRESA:
+                mail_empresa.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.INSERTARUBICACION:
+                mail_ubicacion.create(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.EDITARUBICACION:
+                mail_ubicacion.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.ELIMINARUBICACION:
+                mail_ubicacion.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
+                break;
+            case Token.LISTARUBICACION:
+                mail_ubicacion.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 break;
             default:
                 break;

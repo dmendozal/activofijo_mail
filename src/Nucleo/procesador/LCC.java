@@ -48,7 +48,19 @@ public class LCC {
             "INSERTARINVENTARIO",
             "EDITARINVENTARIO",
             "ELIMINARINVENTARIO",
-            "LISTARINVENTARIO"
+            "LISTARINVENTARIO",
+            "INSERTARCARGO",
+            "EDITARCARGO",
+            "LISTARCARGO",
+            "ELIMINARCARGO",
+            "INSERTARUBICACION",
+            "EDITARUBICACION",
+            "LISTARUBICACION",
+            "ELIMINARUBICACION",
+            "INSERTAREMPRESA",
+            "EDITAREMPRESA",
+            "LISTAREMPRESA",
+            "ELIMINAREMPRESA"
     ));
 
     private static final LinkedList<Token> tokens = new LinkedList<>(Arrays.asList(
@@ -75,7 +87,6 @@ public class LCC {
             new Token(Token.FUNC, Token.EDITARACTIVO, "EDITARACTIVO"),
             new Token(Token.FUNC, Token.LISTARACTIVO, "LISTARACTIVO"),
             new Token(Token.FUNC, Token.ELIMINARACTIVO, "ELIMINARACTIVO"),
-
             new Token(Token.FUNC, Token.INSERTARESTADO, "INSERTARESTADO"),
             new Token(Token.FUNC, Token.EDITARESTADO, "EDITARESTADO"),
             new Token(Token.FUNC, Token.LISTARESTADO, "LISTARESTADO"),
@@ -94,8 +105,22 @@ public class LCC {
             new Token(Token.FUNC, Token.INSERTARINVENTARIO, "INSERTARASIGNACION"),
             new Token(Token.FUNC, Token.EDITARINVENTARIO, "EDITARINVENTARIO"),
             new Token(Token.FUNC, Token.ELIMINARINVENTARIO, "ELIMINARINVENTARIO"),
-            new Token(Token.FUNC, Token.LISTARINVENTARIO, "LISTARINVENTARIO")
-
+            new Token(Token.FUNC, Token.LISTARINVENTARIO, "LISTARINVENTARIO"),
+            
+            new Token(Token.FUNC, Token.INSERTARCARGO, "INSERTARCARGO"),
+            new Token(Token.FUNC, Token.EDITARCARGO, "EDITARCARGO"),
+            new Token(Token.FUNC, Token.LISTARCARGO, "LISTARCARGO"),
+            new Token(Token.FUNC, Token.ELIMINARCARGO, "ELIMINARCARGO"),
+            
+            new Token(Token.FUNC, Token.INSERTARUBICACION, "INSERTARUBICACION"),
+            new Token(Token.FUNC, Token.EDITARUBICACION, "EDITARUBICACION"),
+            new Token(Token.FUNC, Token.LISTARUBICACION, "LISTARUBICACION"),
+            new Token(Token.FUNC, Token.ELIMINARUBICACION, "ELIMINARUBICACION"),
+            
+            new Token(Token.FUNC, Token.INSERTAREMPRESA, "INSERTAREMPRESA"),
+            new Token(Token.FUNC, Token.EDITAREMPRESA, "EDITAREMPRESA"),
+            new Token(Token.FUNC, Token.LISTAREMPRESA, "LISTAREMPRESA"),
+            new Token(Token.FUNC, Token.ELIMINAREMPRESA, "ELIMINAREMPRESA")
     ));
 
     public static Token estaEnLCC(String lexema) {

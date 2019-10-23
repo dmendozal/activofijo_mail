@@ -53,7 +53,22 @@ public class Token {
     public static final int EDITARINVENTARIO = 59;
     public static final int ELIMINARINVENTARIO = 60;
     public static final int LISTARINVENTARIO = 61;
-
+    
+    public static final int INSERTARCARGO = 62;
+    public static final int EDITARCARGO = 63;
+    public static final int LISTARCARGO = 64;
+    public static final int ELIMINARCARGO = 65;
+    
+    public static final int INSERTARUBICACION = 66;
+    public static final int EDITARUBICACION = 67;
+    public static final int LISTARUBICACION = 68;
+    public static final int ELIMINARUBICACION = 69;
+    
+    public static final int INSERTAREMPRESA = 70;
+    public static final int EDITAREMPRESA = 71;
+    public static final int LISTAREMPRESA = 72;
+    public static final int ELIMINAREMPRESA = 73;
+    
     private int nombre;
     private int atributo;
     private String toStr;
