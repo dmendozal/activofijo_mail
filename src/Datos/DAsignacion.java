@@ -42,6 +42,7 @@ public class DAsignacion extends Template {
     public DAsignacion() throws Exception {
     }
 
+    
     @Override
     protected String addT() throws Exception {
         return "INSERT INTO asignacion( fkidactivo, fkidusuario, estado)"
@@ -64,13 +65,13 @@ public class DAsignacion extends Template {
     @Override
     protected String getAllT() throws Exception {
         return "SELECT DISTINCT u.nombre,ac.codigo,b.nombre,b.descripcion"
-                + "FROM asignacion asg ,activo ac,usuario u,bien b"
-                + "where asg.fkidusuario = u.idusuario and asg.fkidactivo = ac.idactivo and ac.fkidbien = b.idbien";
+                + " FROM asignacion asg ,activo ac,usuario u,bien b"
+                + " WHERE asg.fkidusuario = u.idusuario and asg.fkidactivo = ac.idactivo and ac.fkidbien = b.idbien";
     }
 
     @Override
     protected int currentColumn() throws Exception {
-        return 2;
+        return 4;
     }
 
 }

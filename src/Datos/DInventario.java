@@ -32,6 +32,7 @@ public class DInventario extends Template {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public String getEstado() {
         return estado;
     }
@@ -60,6 +61,17 @@ public class DInventario extends Template {
     }
 
     @Override
+    public String toString() {
+        return "Estado{"
+                + "idestado='" + idinventario + '\''
+                + ", sigla='" + idbien + '\''
+                + ", nombre='" + nombre + '\''
+                + ", estado='" + estado + '\''
+                + ", estado='" + cantidad + '\''
+                + '}';
+    }
+
+    @Override
     protected String addT() throws Exception {
         return "INSERT INTO inventario( fkidbien, estado )"
                 + "    VALUES (" + getIdbien() + " ,'1');";
@@ -81,9 +93,9 @@ public class DInventario extends Template {
 
     @Override
     protected String getAllT() throws Exception {
-      return  "SELECT b.nombre,i.cantidad"
-                +"FROM bien b, inventario i"
-                +"where b.idbien = i.fkidbien and i.estado='1'";
+        return "SELECT b.nombre,i.cantidad"
+                + " FROM bien b, inventario i"
+                + " where b.idbien = i.fkidbien and i.estado='1'";
     }
 
     @Override

@@ -20,22 +20,22 @@ public class Token {
     public static final int EDITARESTADO = 21;
     public static final int LISTARESTADO = 22;
     public static final int ELIMINARESTADO = 23;
-     
+
     public static final int INSERTARMANTENIMIENTO = 24;
     public static final int EDITARMANTENIMIENTO = 25;
     public static final int LISTARMANTENIMIENTO = 26;
     public static final int ELIMINARMANTENIMIENTO = 27;
-    
+
     public static final int INSERTARBIEN = 28;
     public static final int EDITARBIEN = 29;
     public static final int LISTARBIEN = 30;
     public static final int ELIMINARBIEN = 31;
-    
+
     public static final int INSERTARACTIVO = 32;
     public static final int EDITARACTIVO = 33;
     public static final int LISTARACTIVO = 34;
     public static final int ELIMINARACTIVO = 35;
-    
+
     ///Modulo Usuario
     public static final int INSERTARUSUARIO = 50;
     public static final int EDITARUSUARIO = 51;
@@ -53,22 +53,23 @@ public class Token {
     public static final int EDITARINVENTARIO = 59;
     public static final int ELIMINARINVENTARIO = 60;
     public static final int LISTARINVENTARIO = 61;
-    
+
     public static final int INSERTARCARGO = 62;
     public static final int EDITARCARGO = 63;
     public static final int LISTARCARGO = 64;
     public static final int ELIMINARCARGO = 65;
-    
+
     public static final int INSERTARUBICACION = 66;
     public static final int EDITARUBICACION = 67;
     public static final int LISTARUBICACION = 68;
     public static final int ELIMINARUBICACION = 69;
-    
+
     public static final int INSERTAREMPRESA = 70;
     public static final int EDITAREMPRESA = 71;
     public static final int LISTAREMPRESA = 72;
     public static final int ELIMINAREMPRESA = 73;
-    
+    public static final int LISTARREPORTE = 80;
+
     private int nombre;
     private int atributo;
     private String toStr;

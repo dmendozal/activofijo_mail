@@ -3,6 +3,7 @@ package Email;
 import Nucleo.procesador.Anacom;
 import Nucleo.procesador.Token;
 import Nucleo.protocolos.ClienteSMTP;
+import javax.swing.JOptionPane;
 
 public abstract class TemplateMail {
 
@@ -20,75 +21,100 @@ public abstract class TemplateMail {
     }
 
     public void create(Anacom anacom, String email, String comandHelp) throws Exception {
-        if (messageHelp(anacom, email, comandHelp)) return;
+        if (messageHelp(anacom, email, comandHelp)) {
+            return;
+        }
 
         boolean sw = this.insertar(anacom, email);
         String lista = this.listar();
 
         if (sw) {
-            System.out.println("EXITO T INSERTAR: "+ this.messageCreate(sw));
-            ClienteSMTP.sendMailHTML(email, "REGISTRO CON EXITO",  this.messageCreate(sw) + lista);
+            JOptionPane.showMessageDialog(null, "Se registro Exitosamente" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+            System.out.println("EXITO T INSERTAR: " + this.messageCreate(sw));
+            ClienteSMTP.sendMailHTML(email, "REGISTRO CON EXITO", this.messageCreate(sw) + lista);
 
-        }else{
-            System.out.println("ERROR T INSERTAR: "+this.messageCreate(sw));
+        } else {
+            JOptionPane.showMessageDialog(null, "No se registro con exito" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+            System.out.println("ERROR T INSERTAR: " + this.messageCreate(sw));
             ClienteSMTP.sendMailHTML(email, "REGISTRO SIN EXITO", this.messageCreate(sw) + lista);
         }
     }
 
-
     public void edit(Anacom anacom, String email, String comandHelp) throws Exception {
-        if (messageHelp(anacom, email, comandHelp)) return;
+        if (messageHelp(anacom, email, comandHelp)) {
+            return;
+        }
 
         boolean sw = this.modificar(anacom, email);
         String lista = this.listar();
         if (sw) {
-            System.out.println("EXITO T EDITAR: "+ this.messageEdit(sw));
+            JOptionPane.showMessageDialog(null, "Se Modifico Exitosamente" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+
+            System.out.println("EXITO T EDITAR: " + this.messageEdit(sw));
             ClienteSMTP.sendMailHTML(email, "MODIFICACION CON EXITO", this.messageEdit(sw) + lista);
-        }else{
-            System.out.println("ERROR T EDITAR: "+this.messageEdit(sw));
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Modifico con exito" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+
+            System.out.println("ERROR T EDITAR: " + this.messageEdit(sw));
             ClienteSMTP.sendMailHTML(email, "MODIFICACION SIN EXITO", this.messageEdit(sw) + lista);
         }
     }
 
     public void remove(Anacom anacom, String email, String comandHelp) throws Exception {
-        if (messageHelp(anacom, email, comandHelp)) return;
+        if (messageHelp(anacom, email, comandHelp)) {
+            return;
+        }
 
         boolean sw = this.eliminar(anacom, email);
         String lista = this.listar();
 
         if (sw) {
-            System.out.println("EXITO T ELIMINAR: "+ this.messageRemove(sw));
+            JOptionPane.showMessageDialog(null, "Se Elimino Exitosamente" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+            System.out.println("EXITO T ELIMINAR: " + this.messageRemove(sw));
             ClienteSMTP.sendMailHTML(email, "ELIMINACION CON EXITO", messageRemove(sw) + lista);
-        }else{
-            System.out.println("ERROR T ELIMINAR: "+ this.messageRemove(sw));
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Elimino con exito" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+
+            System.out.println("ERROR T ELIMINAR: " + this.messageRemove(sw));
             ClienteSMTP.sendMailHTML(email, "ELIMINACION CON EXITO", messageRemove(sw) + lista);
         }
     }
 
     public void findAll(Anacom anacom, String email, String comandHelp) throws Exception {
-        if (messageHelp(anacom, email, comandHelp)) return;
+        if (messageHelp(anacom, email, comandHelp)) {
+            return;
+        }
 
         String lista = this.listar();
 
         if (lista.isEmpty()) {
-            System.out.println("ERROR T LISTAR: "+this.messageFindAll(false));
+            JOptionPane.showMessageDialog(null, "No se Listp con exito" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+
+            System.out.println("ERROR T LISTAR: " + this.messageFindAll(false));
 //            ClienteSMTP.sendMail(email, "LISTADO CON EXITO", this.messageFindAll(false));
             ClienteSMTP.sendMailHTML(email, "LISTADO SIN EXITO", this.messageFindAll(false));
-        }else{
-            System.out.println("EXITO T LISTAR: "+ this.messageFindAll(true));
+        } else {
+            JOptionPane.showMessageDialog(null, "Se Listo Exitosamente" + "\n" + "Se envio un correo de respuesta a .  " + email, "Respuesta del Proceso", 1, null);
+            System.out.println("EXITO T LISTAR: " + this.messageFindAll(true));
 //            ClienteSMTP.sendMail(email, "LISTADO SIN EXITO", this.messageFindAll(true) + lista);
             ClienteSMTP.sendMailHTML(email, "LISTADO CON EXITO", this.messageFindAll(true) + lista);
         }
     }
 
     protected abstract boolean insertar(Anacom anacom, String correo) throws Exception;
+
     protected abstract boolean modificar(Anacom anacom, String correo) throws Exception;
+
     protected abstract boolean eliminar(Anacom anacom, String correo) throws Exception;
+
     protected abstract String listar() throws Exception;
 
     protected abstract String messageCreate(boolean sw);
+
     protected abstract String messageEdit(boolean sw);
+
     protected abstract String messageRemove(boolean sw);
+
     protected abstract String messageFindAll(boolean sw);
 
 }
