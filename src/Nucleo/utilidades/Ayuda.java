@@ -18,138 +18,77 @@ public class Ayuda {
             + "A continuacion se listaran los comandos disponibles para interactuar con el sistema\n"
             + "Ejemplo: COMANDO HELP\n"
             + separador
-
-            + "REGISTRO DIAS DE OFERTA\n\n"
-            + "INSERTARDIA[\"DIA\"]\n\n"
-            + "MODIFICARDIA[ID,\"DIA\"]\n\n"
-            + "ELIMINARDIA[ID]\n\n"
-            + "LISTARDIA\n\n"
+            + "REGISTRO DE ESTADOS\n\n"
+            + "INSERTARESTADO[\"SIGLA\",\"NOMBRE\"]\n\n"
+            + "EDITARESTADO[ID,\"SIGLA\",\"NOMBRE\"]\n\n"
+            + "ELIMINARESTADO[ID]\n\n"
+            + "LISTARESTADO\n\n"
             + separador
-
-            + "REGISTRO DE TIPOS DE OFERTAS\n\n"
-            + "INSERTARTIPO[\"NOMBRE\",\"DESCRIPCION\"]\n\n"
-            + "MODIFICARTIPO[\"NOMBRE\",\"DESCRIPCION\"]\n\n"
-            + "ELIMINARTIPO[\"NOMBRE\"]\n\n"
-            + "LISTARTIPO\n\n"
+            + "REGISTRO DE MANTENNIMIENTO\n\n"
+            + "INSERTARMANTENIMIENTO[\"FECHA INGRESO\",\"FECHA DEVOLUCION\",FKIDACTIVO,FKIDEMPRESA]\n\n"
+            + "EDITARMANTENIMIENTO[ID,\"FECHA INGRESO\",\"FECHA DEVOLUCION\",FKIDACTIVO,FKIDEMPRESA]\n\n"
+            + "ELIMINARMANTENIMIENTO[ID]\n\n"
+            + "LISTARMANTENIMIENTO\n\n"
             + separador
-
-            + "REGISTRO DE OFERTAS\n\n"
-            + "INSERTAROFERTA[\"TITULO\",\"DESCRIPCION\",PRECIO,\"TIPO\"]\n\n"
-            + "MODIFICAROFERTA[ID,\"TITULO\",\"DESCRIPCION\",PRECIO]\n\n"
-            + "ELIMINAROFERTA[ID]\n\n"
-            + "LISTAROFERTA\n\n"
+            + "REGISTRO DE BIENES\n\n"
+            + "INSERTARBIEN[\"NOMBRE\",\"DESCRIPCION\"]\n\n"
+            + "EDITARBIEN[ID,\"NOMBRE\",\"DESCRIPCION\"]\n\n"
+            + "ELIMINARBIEN[ID]\n\n"
+            + "LISTARBIEN\n\n"
             + separador
-
-            + "REGISTRO DE PUBLICO OBJETIVO\n\n"
-            + "INSERTARDIRIGIDO[\"DESCRIPCION\",ID_OFERTA]\n\n"
-            + "MODIFICARDIRIGIDO[ID,\"DESCRIPCION\"]\n\n"
-            + "ELIMINARDIRIGIDO[ID]\n\n"
-            + "LISTARDIRIGIDO\n\n"
+            + "REGISTRO DE ACTIVO\n\n"
+            + "INSERTARACTIVO[\"CODIGO\",FKID_ESTADO,FKID_BIEN,FKID_UBICACION]\n\n"
+            + "EDITARACTIVO[ID,\"CODIGO\",FKID_ESTADO,FKID_BIEN,FKID_UBICACION]\n\n"
+            + "ELIMINARACTIVO[ID]\n\n"
+            + "LISTARACTIVO\n\n"
             + separador
-
-            + "REGISTRO DE OBJETIVO DEL CURSO\n\n"
-            + "INSERTAROBJETIVO[\"DESCRIPCION\",ID_OFERTA]\n\n"
-            + "MODIFICAROBJETIVO[ID,\"DESCRIPCION\"]\n\n"
-            + "ELIMINAROBJETIVO[ID]\n\n"
-            + "LISTAROBJETIVO\n\n"
+            + "REGISTRO DE USUARIO\n\n"
+            + "INSERTARUSUARIO[\"NOMBRE\",\"APELLIDO\",\"EMAIL\",\"PASSWORD\",\"DIRECCION\",\"TELEFONO\",ID_CARGO]\n\n"
+            + "EDITARUSUARIO[ID,\"NOMBRE\",\"APELLIDO\",\"EMAIL\",\"PASSWORD\",\"DIRECCION\",\"TELEFONO\",ID_CARGO]\n\n"
+            + "ELIMINARUSUARIO[ID]\n\n"
+            + "LISTARUSUARIO\n\n"
             + separador
-
-            + "REGISTRO DE LA METODOLOGIA DEL CURSO\n\n"
-            + "INSERTARMETODOLOGIA[\"DESCRIPCION\",ID_OFERTA]\n\n"
-            + "MODIFICARMETODOLOGIA[ID,\"DESCRIPCION\"]\n\n"
-            + "ELIMINARMETODOLOGIA[ID]\n\n"
-            + "LISTARMETODOLOGIA\n\n"
+            + "REGISTRO DE ASIGNACION\n\n"
+            + "INSERTARASIGNACION[ID_USUARIO,ID_BIEN]\n\n"
+            + "EDITARASIGNACION[ID_USUARIO,ID_BIEN]\n\n"
+            + "ELIMINARASIGNACION[ID_USUARIO,ID_BIEN]\n\n"
+            + "LISTARASIGNACION\n\n"
             + separador
-
-            + "REGISTRO DE CRONOGRAMA\n\n"
-            + "INSERTARCRONOGRAMA[\"TITULO\",\"PERIODO\"]\n\n"
-            + "MODIFICARCRONOGRAMA[ID,\"TITULO\",\"PERIODO\"]\n\n"
-            + "ELIMINARCRONOGRAMA[ID]\n\n"
-            + "LISTARCRONOGRAMA\n\n"
+            + "REGISTRO DE INVENTARIO\n\n"
+            + "INSERTARINVENTARIO[IDABIEN]\n\n"
+            + "EDITARINVENTARIO[ID,IDABIEN]\n\n"
+            + "ELIMINARINVENTARIO[ID]\n\n"
+            + "LISTARINVENTARIO\n\n"
             + separador
-
-            + "REGISTRO DEL DETALLE DEL CRONOGRAMA\n\n"
-            + "INSERTARDETALLECRONOGRAMA[ID_CRONOGRAMA,ID_OFERTA]\n\n"
-            + "ELIMINARDETALLECRONOGRAMA[ID_DETALLE]\n\n"
-            + "LISTARDETALLECRONOGRAMA\n\n"
+            + "REGISTRO DEL CARGO DE USUARIO\n\n"
+            + "INSERTARCARGO[\"NOMBRE\",\"DESCRIPCION\"]\n\n"
+            + "EDITARCARGO[ID,\"NOMBRE\",\"DESCRIPCION\"]\n\n"
+            + "ELIMINARCARGO[ID]\n\n"
+            + "LISTARCARGO\n\n"
             + separador
-
-            + "REGISTRO DE REQUISITOS\n\n"
-            + "INSERTARREQUISITO[\"DESCRIPCION\",ID_OFERTA]\n\n"
-            + "MODIFICARREQUISITO[ID,\"DESCRIPCION\"]\n\n"
-            + "ELIMINARREQUISITO[ID]\n\n"
-            + "LISTARREQUISITO\n\n"
+            
+            + "REGISTRO DE UBICACION\n\n"
+            + "INSERTARUBICACION[AULA,PISO]\n\n"
+            + "EDITARUBICACION[ID,AULA,PISO]\n\n"
+            + "ELIMINARUBICACION[ID]\n\n"
+            + "LISTARUBICACION\n\n"
             + separador
-
             + "REGISTRO DE ROL DE USUARIOS\n\n"
+            
             + "INSERTARROL[\"DESCRIPCION\"]\n\n"
-            + "MODIFICARROL[ID,\"DESCRIPCION\"]\n\n"
+            + "EDITARUBICACION[ID,\"DESCRIPCION\"]\n\n"
             + "ELIMINARROL[ID]\n\n"
             + "LISTARROL\n\n"
             + separador
-
-            + "REGISTRO DE GRUPOS DE USUARIOS\n\n"
-            + "INSERTARGRUPO[\"NOMBRE\",\"DESCRIPCION\",ID_ROL]\n\n"
-            + "MODIFICARGRUPO[ID,\"NOMBRE\",\"DESCRIPCION\"]\n\n"
-            + "ELIMINARGRUPO[ID]\n\n"
-            + "LISTARGRUPO\n\n"
+            
+            + "REGISTRO DE EMPRESAS\n\n"
+            + "INSERTAREMPRESA[\"RAZON SOCIAL\",\"EMAIL\",\"DIRECCION\",\"TELEFONO\"]\n\n"
+            + "EDITAREMPRESA[ID,\"RAZON SOCIAL\",\"EMAIL\",\"DIRECCION\",\"TELEFONO\"]\n\n"
+            + "ELIMINAREMPRESA[ID]\n\n"
+            + "LISTAREMPRESA\n\n"
+            
             + separador
-
-            + "REGISTRO DE USUARIOS\n\n"
-            + "INSERTARUSUARIO[\"NOMBRE\",\"EMAIL\",\"PASSWORD\",TIPO,\"ESPECIALIDAD\",\"ACERDADE\",\"TELEFONO\",ID_GRUPOID]\n\n"
-            + "MODIFICARUSUARIO[ID,\"NOMBRE\",\"EMAIL\",\"PASSWORD\",TIPO,\"PROFESION\",\"ACERDADE\",\"TELEFONO\",ID_GRUPOID]\n\n"
-            + "ELIMINARUSUARIO[ID]\n\n"
-            + "LISTARUSUARIOS\n\n"
-            + separador
-
-            + "REGISTRO DE RESERVAS\n\n"
-            + "INSERTARRESERVA[\"FECHA\",\"DESCRIPCION\",ID_USUARIO,ID_OFERTA]\n\n"
-            + "MODIFICARRESERVA[ID,\"FECHA\",\"DESCRIPCION\"]\n\n"
-            + "ELIMINARRESERVA[ID]\n\n"
-            + "LISTARRESERVA\n\n"
-            + separador
-
-            + "REGISTRO DE PAGO\n\n"
-            + "INSERTARPAGO[MONTO,\"TIPO_PAGO\"]\n\n"
-            + "MODIFICARPAGO[ID,MONTO,\"TIPO_PAGO\"]\n\n"
-            + "ELIMINARPAGO[ID]\n\n"
-            + "LISTARPAGO\n\n"
-            + separador
-
-            + "REGISTRO DE VENTA\n\n"
-            + "INSERTARVENTA[MONTO,ID_USUARIO]\n\n"
-            + "MODIFICARVENTA[ID,MONTO]\n\n"
-            + "ELIMINARVENTA[ID]\n\n"
-            + "LISTARVENTA\n\n"
-            + separador
-
-            + "REGISTRO DE DETALLE DE VENTA\n\n"
-            + "INSERTARDETALLEVENTA[\"FECHA\",ID_VENTA,ID_OFERTA,ID_PAGO,ID_USUARIO]\n\n"
-            + "MODIFICARDETALLEVENTA[ID,\"FECHA\"]\n\n"
-            + "ELIMINARDETALLEVENTA[ID]\n\n"
-            + "LISTARDETALLEVENTA\n\n"
-            + separador
-
-            + "REGISTRO DE BOLETA\n\n"
-            + "INSERTARBOLETA[MONTO,ID_PAGO]\n\n"
-            + "MODIFICARBOLETA[ID,MONTO]\n\n"
-            + "ELIMINARBOLETA[ID]\n\n"
-            + "LISTARBOLETA\n\n"
-            + separador
-
-            + "REGISTRO DE ASIGNACION DE OFERTA - CLIENTE\n\n"
-            + "INSERTARPO[ID_USAURIO,ID_OFERTA]\n\n"
-            + "ELIMINARPO[ID]\n\n"
-            + "LISTARPO\n\n"
-            + separador
-
-            + "REGISTRO DE ASIGNACION DE OFERTA - DOCENTE\n\n"
-            + "INSERTARDO[ID_OFERTA,ID_DOCENTE]\n\n"
-            + "ELIMINARDO[ID]\n\n"
-            + "LISTARDO\n\n"
-            + separador
-
-            + "Muestre los reportes:\n"
-                    + "REPORTE\n\n"
-                    + separador;
+            + "REPORTES\n\n"
+            + "LISTARREPORTE\n\n"
+            + separador;
 }

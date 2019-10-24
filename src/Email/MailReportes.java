@@ -44,6 +44,15 @@ public class MailReportes extends TemplateMail {
         }
     }
 
+    public String listarUsuarioActivo() throws Exception {
+        try {
+            return reporte.MostrarActivosUsuarios();
+
+        } catch (Exception e) {
+                        throw e;
+        }
+    }
+
     @Override
     protected String messageCreate(boolean sw) {
         return (sw) ? "Contenido registrado exitosamente con id: " + reporte.getInfo().toString() : "No se pudo registrar el contenido";

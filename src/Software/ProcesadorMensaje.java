@@ -239,6 +239,10 @@ public class ProcesadorMensaje {
                 JOptionPane.showMessageDialog(null, "De = " + destinatario + "\n" + "Asunto =" + "LISTARREPORTE");
                 mail_reporte.findAll(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 break;
+            case Token.LISTARREPORTEACTIVOSUSUARIOS:
+                JOptionPane.showMessageDialog(null, "De = " + destinatario + "\n" + "Asunto =" + "LISTARREPORTE");
+                mail_reporte.listarUsuarioActivo();
+                break;
             default:
                 break;
         }

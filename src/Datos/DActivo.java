@@ -88,22 +88,6 @@ public class DActivo extends Template {
     public DActivo() throws Exception {
     }
     
-    Conexion conexion;
-
-    private void sql(String sql) throws Exception {
-                this.conexion = Conexion.getConexion();
-
-        System.out.println("sql = [" + sql + "]");
-        try {
-            PreparedStatement st = this.conexion.conectar().prepareStatement(sql);
-            st.executeUpdate();
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            this.conexion.desconectar();
-        }
-    }
-
 
     @Override
     public String toString() {
