@@ -38,7 +38,6 @@ public class HiloPrincipal extends javax.swing.JFrame {
                         System.out.println("-------------------------------------------");
                         new HiloAtencion(content).start();
                     }
-
                 }
                 waitCiclo();
             }
