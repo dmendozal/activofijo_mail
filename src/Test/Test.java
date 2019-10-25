@@ -8,9 +8,9 @@ public class Test {
 
     public static void main(String args[]) throws Exception {
 
-        NEstado o = new NEstado();
-        o.add("T15","TALLER");
-        System.out.println(o.Mostrar());
+        NActivo o = new NActivo();
+        //o.add("pato", 1, 1, 1);
+        System.out.println(o.ConvertirBase64("UBP235"));
 //        o.update("T","TALLERES");
 //        System.out.println(o.Mostrar());
 //        o.delete("Tt");

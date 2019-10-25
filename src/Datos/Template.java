@@ -75,7 +75,7 @@ public abstract class Template {
 
 
     public ResultSet consultarDatos(String consulta) throws Exception{
-        Connection conn = (Connection) conexion.getConexion();
+        //Connection conn = (Connection) conexion.getConexion();
         ResultSet result = null;
         try {
             Statement st = this.conexion.conectar().createStatement();
