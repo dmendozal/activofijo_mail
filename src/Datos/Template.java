@@ -72,6 +72,8 @@ public abstract class Template {
         System.out.println("conexion getAll --> " + this.conexion.toString().hashCode());
         return this.listar(getAllT());
     }
+    
+    
 
 
     public ResultSet consultarDatos(String consulta) throws Exception{

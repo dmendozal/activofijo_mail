@@ -142,22 +142,6 @@ public class NActivo {
         return ob;
     }
 
-    private List<DUbicacion> ObtenerUbicacion() throws Exception {
-        List<DUbicacion> ob = new ArrayList<>();
-        List<Object> lista = (List<Object>) this.o.getAll();
-        try {
-            for (Object objecto : lista) {
-                List<Object> obj = (List<Object>) objecto;
-                DUbicacion oo = new DUbicacion();
-                oo.setAula(Integer.valueOf(obj.get(0).toString()));
-                oo.setPiso(Integer.valueOf(obj.get(1).toString()));
-                ob.add(oo);
-            }
-        } catch (Exception e) {
-            throw e;
-        }
-        return ob;
-    }
 
     public String ubicacionActivo() {
         String rx = "";
@@ -192,7 +176,7 @@ public class NActivo {
                         + "   <td>" + obj.getFkidestado() + "</td>\n"
                         + "   <td>" + obj.getFkidbien() + "</td>\n"
                         + "   <td>" + obj.getFkidubicacion() + "</td>\n"
-                        + "   <img " +"src='"+"data:image/png;base64,"+this.ConvertirBase64(obj.getQr())+"'>"+ "</img>\n"
+                        + "   <img " +"src='"+"data:image/png;base64,"+this.ConvertirBase64(obj.getQr())+"'"+ "style=\"width:100px;"+ ">"+ "</img>\n"
                         + "</tr>\n";
             }
             rx += "  </tbody>\n"

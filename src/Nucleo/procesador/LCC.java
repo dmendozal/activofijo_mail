@@ -49,6 +49,7 @@ public class LCC {
             "EDITARINVENTARIO",
             "ELIMINARINVENTARIO",
             "LISTARINVENTARIO",
+            ////cargo
             "INSERTARCARGO",
             "EDITARCARGO",
             "LISTARCARGO",
@@ -61,7 +62,8 @@ public class LCC {
             "EDITAREMPRESA",
             "LISTAREMPRESA",
             "ELIMINAREMPRESA",
-            "LISTARREPORTE"
+            "LISTARREPORTE",
+            "LISTARREPORTEACTIVOSUSUARIOS"
     ));
 
     private static final LinkedList<Token> tokens = new LinkedList<>(Arrays.asList(
@@ -119,8 +121,8 @@ public class LCC {
             new Token(Token.FUNC, Token.EDITAREMPRESA, "EDITAREMPRESA"),
             new Token(Token.FUNC, Token.LISTAREMPRESA, "LISTAREMPRESA"),
             new Token(Token.FUNC, Token.ELIMINAREMPRESA, "ELIMINAREMPRESA"),
-            
-            new Token(Token.FUNC, Token.LISTARREPORTE, "LISTARREPORTE")
+            new Token(Token.FUNC, Token.LISTARREPORTE, "LISTARREPORTE"),
+            new Token(Token.FUNC, Token.LISTARREPORTEACTIVOSUSUARIOS, "LISTARREPORTEACTIVOSUSUARIOS")
     ));
 
     public static Token estaEnLCC(String lexema) {

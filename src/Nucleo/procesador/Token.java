@@ -68,7 +68,9 @@ public class Token {
     public static final int EDITAREMPRESA = 71;
     public static final int LISTAREMPRESA = 72;
     public static final int ELIMINAREMPRESA = 73;
+
     public static final int LISTARREPORTE = 80;
+    public static final int LISTARREPORTEACTIVOSUSUARIOS = 81;
 
     private int nombre;
     private int atributo;
