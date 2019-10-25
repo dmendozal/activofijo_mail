@@ -14,7 +14,7 @@ import java.util.List;
  * @author Joalgt
  */
 public class NEmpresa {
-    
+
     private DEmpresa o;
 
     public NEmpresa() throws Exception {
@@ -38,7 +38,7 @@ public class NEmpresa {
         }
     }
 
-    public void update(int id,String razon_social, String email, String direccion, String telefono) throws Exception {
+    public void update(int id, String razon_social, String email, String direccion, String telefono) throws Exception {
         try {
             o.setIdempresa(id);
             o.setRazon_social(razon_social);
@@ -68,12 +68,11 @@ public class NEmpresa {
             for (Object objecto : lista) {
                 List<Object> obj = (List<Object>) objecto;
                 DEmpresa oo = new DEmpresa();
-
-                oo.setRazon_social(obj.get(0).toString());
-                oo.setEmail(obj.get(1).toString());
-                oo.setDireccion(obj.get(2).toString());
-                oo.setTelefono(obj.get(3).toString());
-
+                oo.setIdempresa(Integer.valueOf(obj.get(0).toString()));
+                oo.setRazon_social(obj.get(1).toString());
+                oo.setEmail(obj.get(2).toString());
+                oo.setDireccion(obj.get(3).toString());
+                oo.setTelefono(obj.get(4).toString());
                 ob.add(oo);
             }
         } catch (Exception e) {
@@ -91,6 +90,7 @@ public class NEmpresa {
             rx += " <table style=\"width:100%; border-style: outset; text-align: left;\" >"
                     + "             <thead>\n"
                     + "                   <tr >\n"
+                    + "                         <th>ID_EMPRESA</th>\n"
                     + "                         <th>RAZON_SOCIAL</th>\n"
                     + "                         <th>EMAIL</th>\n"
                     + "                         <th>DIRECCION</th>\n"
@@ -101,10 +101,11 @@ public class NEmpresa {
             for (DEmpresa obj : lObj) {
                 rx = rx
                         + "<tr style=\"\">\n"
-                        + "   <td>" + obj.getRazon_social()+ "</td>\n"
-                        + "   <td>" + obj.getEmail()+ "</td>\n"
-                        + "   <td>" + obj.getDireccion()+ "</td>\n"
-                        + "   <td>" + obj.getTelefono()+ "</td>\n"
+                        + "   <td>" + obj.getIdempresa()+ "</td>\n"
+                        + "   <td>" + obj.getRazon_social() + "</td>\n"
+                        + "   <td>" + obj.getEmail() + "</td>\n"
+                        + "   <td>" + obj.getDireccion() + "</td>\n"
+                        + "   <td>" + obj.getTelefono() + "</td>\n"
                         + "</tr>\n";
             }
             rx += "  </tbody>\n"
@@ -115,5 +116,3 @@ public class NEmpresa {
         return rx;
     }
 }
-
-

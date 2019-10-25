@@ -43,7 +43,7 @@ public class MailUsuario extends TemplateMail {
             String telefono = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
             anacom.Avanzar();
             anacom.Avanzar();
-            int idcargo = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idcargo = anacom.Preanalisis().getAtributo();
 
             usuario.add(nombre, apellido, email, password, direccion, telefono, idcargo);
             return true;
@@ -57,7 +57,7 @@ public class MailUsuario extends TemplateMail {
     protected boolean modificar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idusuario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idusuario = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
             String nombre = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
@@ -85,7 +85,7 @@ public class MailUsuario extends TemplateMail {
     protected boolean eliminar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idusuario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idusuario = anacom.Preanalisis().getAtributo();
             usuario.delete(idusuario);
             return true;
         } catch (Exception e) {

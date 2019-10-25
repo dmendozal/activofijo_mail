@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author Thedath Oudarya
+ * @author D-M-7
  */
 public final class Tabla {
     

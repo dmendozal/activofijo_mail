@@ -47,7 +47,7 @@ public class MailEmpresa extends TemplateMail {
     protected boolean modificar(Anacom anacom, String correo) throws Exception{
         try {
             anacom.Avanzar();
-            int idempresa = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idempresa = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
             String razon_social = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
@@ -71,7 +71,7 @@ public class MailEmpresa extends TemplateMail {
     protected boolean eliminar(Anacom anacom, String correo) throws Exception{
         try {
             anacom.Avanzar();
-            int id = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int id = anacom.Preanalisis().getAtributo();
             o.delete(id);
             return true;
         } catch (Exception e) {

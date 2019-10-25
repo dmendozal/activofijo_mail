@@ -193,7 +193,6 @@ public class ProcesadorMensaje {
             case Token.EDITARCARGO:
                 mail_cargo.edit(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 JOptionPane.showMessageDialog(null, "De = " + destinatario + "\n" + "Asunto =" + "EDITARCARGO");
-
                 break;
             case Token.ELIMINARCARGO:
                 JOptionPane.showMessageDialog(null, "De = " + destinatario + "\n" + "Asunto =" + "ELIMINARCARGO");

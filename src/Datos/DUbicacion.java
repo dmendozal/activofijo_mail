@@ -53,7 +53,7 @@ public class DUbicacion extends Template {
     
    @Override
     public String toString() {
-        return "Estado{" +
+        return "ubicacion{" +
                 "idubicacion='" + idubicacion + '\'' +
                 ", aula='" + aula + '\'' +
                 ", piso='" + piso + '\''+
@@ -63,33 +63,33 @@ public class DUbicacion extends Template {
 
     @Override
     protected String addT() throws Exception {
-        return "INSERT INTO estado( aula, piso, estado)" +
-                "    VALUES ('"+ getAula()+"', '"+ getPiso()+"', '"+ getEstado() +"');";
+        return "INSERT INTO ubicacion( aula, piso, estado)" +
+                " VALUES ("+ getAula()+","+ getPiso()+",'"+ getEstado() +"');";
     }
 
     @Override
     protected String updateT() throws Exception {
-        return "UPDATE estado" +
-                " SET aula='"+getAula()+"', piso='"+ getPiso()+"'" +
+        return "UPDATE ubicacion" +
+                " SET aula="+getAula()+", piso="+ getPiso() +
                 " WHERE idubicacion = "+ getIdubicacion()+";";                                                                                                                                                                               
     }
 
     @Override
     protected String deleteT() throws Exception {
-        return "UPDATE estado " +
-                "SET estado='0' "+"WHERE idestado="+getIdubicacion()+";";
+        return "UPDATE ubicacion " +
+                "SET estado='0' "+"WHERE idubicacion="+getIdubicacion()+";";
     }
 
     @Override
     protected String getAllT() throws Exception {
-            return "SELECT aula, piso" +
-                " FROM Estado" +
+            return "SELECT idubicacion,aula, piso" +
+                " FROM ubicacion" +
                 " WHERE estado='1'";
     }
 
     @Override
     protected int currentColumn() throws Exception {
-       return 2;
+       return 3;
     }
 }
 
