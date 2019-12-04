@@ -10,15 +10,16 @@ package Datos;
  * @author Joalgt
  */
 public class DEmpresa extends Template {
-    
+
     private int idempresa;
     private String razon_social;
     private String email;
     private String direccion;
     private String telefono;
     private int estado;
-    
-    public DEmpresa() throws Exception{}
+
+    public DEmpresa() throws Exception {
+    }
 
     public int getIdempresa() {
         return idempresa;
@@ -67,48 +68,47 @@ public class DEmpresa extends Template {
     public void setEstado(int estado) {
         this.estado = estado;
     }
-    
-    
-   @Override
+
+    @Override
     public String toString() {
-        return "Empresa{" +
-                "idempresa='" + idempresa + '\'' +
-                ", razon_social='" + razon_social + '\'' +
-                ", email='" + email + '\''+
-                ", direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", estado='" + estado + '\'' +
-                '}';
+        return "Empresa{"
+                + "idempresa='" + idempresa + '\''
+                + ", razon_social='" + razon_social + '\''
+                + ", email='" + email + '\''
+                + ", direccion='" + direccion + '\''
+                + ", telefono='" + telefono + '\''
+                + ", estado='" + estado + '\''
+                + '}';
     }
 
     @Override
     protected String addT() throws Exception {
-        return "INSERT INTO empresa( razon_social, email, direccion, telefono, estado )" +
-                "    VALUES ('"+ getRazon_social()+"', '"+ getEmail()+"', '"+ getDireccion()+"', '"+ getTelefono()+"', '"+ getEstado()+"' );";
+        return "INSERT INTO empresa( razon_social, email, direccion, telefono,estado )"
+                + "    VALUES ('" + getRazon_social() + "', '" + getEmail() + "', '" + getDireccion() + "', '" + getTelefono() + "', '" + getEstado() + "' );";
     }
 
     @Override
     protected String updateT() throws Exception {
-        return "UPDATE empresa" +
-                 " SET razon_social='"+getRazon_social()+"', email='"+ getEmail()+"'" +"', direccion='"+ getDireccion()+"', telefono='"+ getTelefono()+
-                "' WHERE idempresa = "+ getIdempresa()+";";                                                                                                                                                                               
+        return "UPDATE empresa"
+                + " SET razon_social='" + getRazon_social() + "', email='" + getEmail() + "'" + ", direccion='" + getDireccion() + "', telefono='" + getTelefono() + "'"
+                + " WHERE idempresa = " + getIdempresa() + ";";
     }
 
     @Override
     protected String deleteT() throws Exception {
-        return "UPDATE empresa " +
-                "SET estado='0' "+"WHERE idempresa="+getIdempresa()+";";
+        return "UPDATE empresa "
+                + "SET estado='0' " + "WHERE idempresa=" + getIdempresa() + ";";
     }
 
     @Override
     protected String getAllT() throws Exception {
-            return "SELECT razon_social, email, direccion, telefono" +
-                " FROM empresa" +
-                " WHERE idempresa='1'";
+        return "SELECT idempresa, razon_social, email, direccion, telefono"
+                + " FROM empresa"
+                + " WHERE estado='1'";
     }
 
     @Override
     protected int currentColumn() throws Exception {
-       return 4;
+        return 5;
     }
 }

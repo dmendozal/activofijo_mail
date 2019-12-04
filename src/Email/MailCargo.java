@@ -29,7 +29,6 @@ public class MailCargo extends TemplateMail {
             anacom.Avanzar();
             anacom.Avanzar();
             String descripcion = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
-
             o.add(nombre,descripcion);
             return true;
         } catch (Exception e) {

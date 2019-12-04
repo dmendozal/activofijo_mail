@@ -82,7 +82,7 @@ public class DCargo extends Template {
         @Override
     protected String getAllT() throws Exception {
             return "SELECT nombre, descripcion" +
-                " FROM cargo" +
+                " FROM Cargo" +
                 " WHERE estado='1'";
     }
 

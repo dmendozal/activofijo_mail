@@ -7,7 +7,7 @@ package Nucleo.presentador;
 
 /**
  *
- * @author Thedath Oudarya
+ * @author D-M-7
  */
 class Letra {
     

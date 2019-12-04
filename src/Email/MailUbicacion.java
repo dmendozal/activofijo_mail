@@ -23,11 +23,10 @@ public class MailUbicacion extends TemplateMail {
     protected boolean insertar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int aula = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int aula = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int piso = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
-
+            int piso = anacom.Preanalisis().getAtributo();
             o.add(aula,piso);
             return true;
         } catch (Exception e) {
@@ -42,7 +41,7 @@ public class MailUbicacion extends TemplateMail {
             int idempresa = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int aula =anacom.Preanalisis().getAtributo();
+            int aula = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
             int piso = anacom.Preanalisis().getAtributo();

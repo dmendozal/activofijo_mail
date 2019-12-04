@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Thedath Oudarya
+ * @author D-M-7
  */
 public final class Bloque {
 

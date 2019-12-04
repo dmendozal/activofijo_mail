@@ -64,9 +64,9 @@ public class NUbicacion {
             for (Object objecto : lista) {
                 List<Object> obj = (List<Object>) objecto;
                 DUbicacion oo = new DUbicacion();
-
-                oo.setPiso(Integer.parseInt(obj.get(0).toString()));
-                oo.setAula(Integer.parseInt(obj.get(1).toString()));
+                oo.setIdubicacion(Integer.valueOf(obj.get(0).toString()));
+                oo.setPiso(Integer.parseInt(obj.get(1).toString()));
+                oo.setAula(Integer.parseInt(obj.get(2).toString()));
 
                 ob.add(oo);
             }
@@ -85,6 +85,7 @@ public class NUbicacion {
             rx += " <table style=\"width:100%; border-style: outset; text-align: left;\" >"
                     + "             <thead>\n"
                     + "                   <tr >\n"
+                    + "                         <th>ID_UBICACION</th>\n"
                     + "                         <th>AULA</th>\n"
                     + "                         <th>PISO</th>\n"
                     + "                   </tr>\n"
@@ -93,8 +94,9 @@ public class NUbicacion {
             for (DUbicacion obj : lObj) {
                 rx = rx
                         + "<tr style=\"\">\n"
-                        + "   <td>" + obj.getPiso()+ "</td>\n"
-                        + "   <td>" + obj.getAula()+ "</td>\n"
+                        + "   <td>" + obj.getIdubicacion() + "</td>\n"
+                        + "   <td>" + obj.getPiso() + "</td>\n"
+                        + "   <td>" + obj.getAula() + "</td>\n"
                         + "</tr>\n";
             }
             rx += "  </tbody>\n"

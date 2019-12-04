@@ -6,7 +6,6 @@
 package Negocio;
 
 import Datos.DActivo;
-import Datos.DBien;
 import Datos.DUbicacion;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

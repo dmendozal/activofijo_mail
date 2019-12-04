@@ -25,10 +25,10 @@ public class MailAsignacion extends TemplateMail {
     protected boolean insertar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idusuario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idusuario = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int idactivo = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idactivo = anacom.Preanalisis().getAtributo();
 
             asignacion.add(idusuario, idactivo);
             return true;
@@ -42,10 +42,10 @@ public class MailAsignacion extends TemplateMail {
     protected boolean modificar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idusuario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idusuario = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int idactivo = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idactivo = anacom.Preanalisis().getAtributo();
 
             asignacion.update(idusuario, idactivo);
             return true;
@@ -58,10 +58,10 @@ public class MailAsignacion extends TemplateMail {
     protected boolean eliminar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idusuario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idusuario = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int idactivo = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idactivo = anacom.Preanalisis().getAtributo();
 
             asignacion.delete(idusuario, idactivo);
             return true;
