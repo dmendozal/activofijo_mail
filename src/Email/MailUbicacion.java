@@ -39,13 +39,13 @@ public class MailUbicacion extends TemplateMail {
     protected boolean modificar(Anacom anacom, String correo) throws Exception{
         try {
             anacom.Avanzar();
-            int idempresa = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idempresa = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int aula = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int aula =anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int piso = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int piso = anacom.Preanalisis().getAtributo();
             o.update(idempresa, aula, piso);
             return true;
         } catch (Exception e) {
@@ -57,7 +57,7 @@ public class MailUbicacion extends TemplateMail {
     protected boolean eliminar(Anacom anacom, String correo) throws Exception{
         try {
             anacom.Avanzar();
-            int id = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int id = anacom.Preanalisis().getAtributo();
             o.delete(id);
             return true;
         } catch (Exception e) {

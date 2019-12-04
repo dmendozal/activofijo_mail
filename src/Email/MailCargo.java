@@ -41,7 +41,7 @@ public class MailCargo extends TemplateMail {
     protected boolean modificar(Anacom anacom, String correo) throws Exception{
         try {
             anacom.Avanzar();
-            int idcargo = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idcargo = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
             String nombre = Herramientas.quitarComillas(anacom.Preanalisis().getToStr());
@@ -59,7 +59,7 @@ public class MailCargo extends TemplateMail {
     protected boolean eliminar(Anacom anacom, String correo) throws Exception{
         try {
             anacom.Avanzar();
-            int id = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int id = anacom.Preanalisis().getAtributo();
             o.delete(id);
             return true;
         } catch (Exception e) {

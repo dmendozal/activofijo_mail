@@ -177,7 +177,7 @@ public class NActivo {
                         + "   <td>" + obj.getFkidestado() + "</td>\n"
                         + "   <td>" + obj.getFkidbien() + "</td>\n"
                         + "   <td>" + obj.getFkidubicacion() + "</td>\n"
-                        + "   <img " +"src='"+"data:image/png;base64,"+this.ConvertirBase64(obj.getQr())+"'"+ "style=\"width:100px;"+ ">"+ "</img>\n"
+                        + "   <td>" + "   <img src='"+"data:image/png;base64,"+this.ConvertirBase64(obj.getQr())+"'/>"+"</img>"+ "</td>\n"
                         + "</tr>\n";
             }
             rx += "  </tbody>\n"

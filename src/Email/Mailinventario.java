@@ -25,7 +25,7 @@ public class Mailinventario extends TemplateMail {
     protected boolean insertar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idbien = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idbien = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
 
@@ -41,10 +41,10 @@ public class Mailinventario extends TemplateMail {
     protected boolean modificar(Anacom anacom, String correo) throws Exception {
         try {
             anacom.Avanzar();
-            int idinventario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idinventario = anacom.Preanalisis().getAtributo();
             anacom.Avanzar();
             anacom.Avanzar();
-            int idbien = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idbien = anacom.Preanalisis().getAtributo();
 
             inventario.update(idinventario,idbien);
             return true;
@@ -57,7 +57,7 @@ public class Mailinventario extends TemplateMail {
     protected boolean eliminar(Anacom anacom, String correo) throws Exception {
        try {
             anacom.Avanzar(); 
-            int idinventario = Integer.parseInt(Herramientas.quitarComillas(anacom.Preanalisis().getToStr()));
+            int idinventario = anacom.Preanalisis().getAtributo();
             inventario.delete(idinventario);
             return true;
         } catch (Exception e) {

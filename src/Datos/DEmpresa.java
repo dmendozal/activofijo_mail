@@ -71,7 +71,7 @@ public class DEmpresa extends Template {
     
    @Override
     public String toString() {
-        return "Estado{" +
+        return "Empresa{" +
                 "idempresa='" + idempresa + '\'' +
                 ", razon_social='" + razon_social + '\'' +
                 ", email='" + email + '\''+
@@ -83,32 +83,32 @@ public class DEmpresa extends Template {
 
     @Override
     protected String addT() throws Exception {
-        return "INSERT INTO estado( razon_social, email, direccion, telefono,estado )" +
+        return "INSERT INTO empresa( razon_social, email, direccion, telefono, estado )" +
                 "    VALUES ('"+ getRazon_social()+"', '"+ getEmail()+"', '"+ getDireccion()+"', '"+ getTelefono()+"', '"+ getEstado()+"' );";
     }
 
     @Override
     protected String updateT() throws Exception {
-        return "UPDATE estado" +
+        return "UPDATE empresa" +
                  " SET razon_social='"+getRazon_social()+"', email='"+ getEmail()+"'" +"', direccion='"+ getDireccion()+"', telefono='"+ getTelefono()+
-                " WHERE idestado = "+ getIdempresa()+";";                                                                                                                                                                               
+                "' WHERE idempresa = "+ getIdempresa()+";";                                                                                                                                                                               
     }
 
     @Override
     protected String deleteT() throws Exception {
-        return "UPDATE estado " +
-                "SET estado='0' "+"WHERE idestado="+getIdempresa()+";";
+        return "UPDATE empresa " +
+                "SET estado='0' "+"WHERE idempresa="+getIdempresa()+";";
     }
 
     @Override
     protected String getAllT() throws Exception {
             return "SELECT razon_social, email, direccion, telefono" +
-                " FROM Estado" +
-                " WHERE estado='1'";
+                " FROM empresa" +
+                " WHERE idempresa='1'";
     }
 
     @Override
     protected int currentColumn() throws Exception {
-       return 2;
+       return 4;
     }
 }

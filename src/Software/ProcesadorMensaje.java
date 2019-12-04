@@ -78,7 +78,6 @@ public class ProcesadorMensaje {
                 break;
             case Token.ELIMINARESTADO:
                 JOptionPane.showMessageDialog(null, "De = " + destinatario + "\n" + "Asunto =" + "ELIMINARESTADO");
-
                 mail_estado.remove(anacom, destinatario, Ayuda.HELP_GLOBAL);
                 break;
             case Token.INSERTARMANTENIMIENTO:

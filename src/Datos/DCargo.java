@@ -63,26 +63,26 @@ public class DCargo extends Template {
     
     @Override
     protected String addT() throws Exception {
-        return "INSERT INTO estado( nombre, descripcion)"
+        return "INSERT INTO cargo( nombre, descripcion, estado)"
                 + "    VALUES ('" + getNombre() + "', '" + getDescripcion()+"', '"+ getEstado() +"');";
     }
     
     @Override
     protected String updateT() throws Exception {
-        return "UPDATE estado" +
+        return "UPDATE cargo" +
                 " SET nombre='"+getNombre()+"', descripcion='"+ getDescripcion()+"'" +
                 " WHERE idcargo = "+ getIdcargo()+";";                                                                                                                                                                               
     }
     
         @Override
     protected String deleteT() throws Exception {
-        return "UPDATE estado " +
-                "SET estado='0' "+"WHERE idestado="+getIdcargo()+";";
+        return "UPDATE cargo " +
+                "SET estado='0' "+"WHERE idcargo="+getIdcargo()+";";
     }
         @Override
     protected String getAllT() throws Exception {
             return "SELECT nombre, descripcion" +
-                " FROM Estado" +
+                " FROM cargo" +
                 " WHERE estado='1'";
     }
 
