@@ -133,17 +133,16 @@ public class ClienteSMTP {
     }
     
     public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
-        // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
         String remitente = Constantes.MAIL_USERMAIL;  //Para la dirección nomcuenta@gmail.com
         String clave = Constantes.MAIL_PASSWORD;
 
         Properties props = System.getProperties();
-        props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
+        props.put("mail.smtp.host", "");  //El servidor SMTP de Google
         props.put("mail.smtp.user", remitente);
         props.put("mail.smtp.clave", clave);    //La clave de la cuenta
         props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
         props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
-        props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
+        props.put("mail.smtp.port", ""); //El puerto SMTP seguro de Google
 
         Session session = Session.getDefaultInstance(props);
         MimeMessage message = new MimeMessage(session);
@@ -163,120 +162,4 @@ public class ClienteSMTP {
             me.printStackTrace();   //Si se produce un error
         }
     }
-
-/**
-    public static void sendMailWithFile(String correoDestino, String path, String contenido, String subject) {
-        String to = correoDestino;
-        String from = "grupo05sc@ficct.uagrm.edu.bo";
-        final String username = "grupo05sc";//change accordingly
-        final String password = "grupo05grupo05";//change accordingly
-        //String host = "mail.ficct.uagrm.edu.bo";
-        String host = "virtual.fcet.uagrm.edu.bo";
-        Properties props = new Properties();
-        //props.put("mail.smtp.auth", "true");
-        //props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "25");
-        // Get the Session object.
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new javax.mail.PasswordAuthentication(username, password);
-            }
-        });
-        try {
-            // Create a default MimeMessage object.
-            Message message = new MimeMessage(session);
-            // Set From: header field of the header.
-            message.setFrom(new InternetAddress(from));
-            // Set To: header field of the header.
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            // Set Subject: header field
-            message.setSubject(subject);
-            // Create the message part
-            BodyPart messageBodyPart = new MimeBodyPart();
-            // Now set the actual message
-            messageBodyPart.setText(contenido);
-            // Create a multipar message
-            Multipart multipart = new MimeMultipart();
-            // Set text message part
-            multipart.addBodyPart(messageBodyPart);
-            // Part two is attachment
-            messageBodyPart = new MimeBodyPart();
-            //String filename = "archivos/imagenes/video.mkv";
-            DataSource source = (DataSource) new FileDataSource(path);
-            messageBodyPart.setDataHandler(new DataHandler((javax.activation.DataSource) source));
-            messageBodyPart.setFileName(new File(path).getName());
-            messageBodyPart.setDisposition(Part.ATTACHMENT);
-            messageBodyPart.setHeader("Content-Transfer-Encoding", "base64");
-            multipart.addBodyPart(messageBodyPart);
-            // Send the complete message parts
-            message.setContent(multipart);
-            // Send message
-            Transport.send(message);
-            System.out.println("Se ha enviado un correo de respuesta");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public static void sendMailWithFiles(String correoDestino, List<String> rutas, String contenido, String subject) {
-        String to = correoDestino;
-        String from = "grupo03sa@ficct.uagrm.edu.bo";
-        final String username = "grupo03sa";//change accordingly
-        final String password = "grupo03grupo03";//change accordingly
-        String host = "mail.ficct.uagrm.edu.bo";
-//        String host = "virtual.fcet.uagrm.edu.bo";
-        Properties props = new Properties();
-        //props.put("mail.smtp.auth", "true");
-        //props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "25");
-        // Get the Session object.
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new javax.mail.PasswordAuthentication(username, password);
-            }
-        });
-        try {
-            // Create a default MimeMessage object.
-            Message message = new MimeMessage(session);
-            // Set From: header field of the header.
-            message.setFrom(new InternetAddress(from));
-            // Set To: header field of the header.
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            // Set Subject: header field
-            message.setSubject(subject);
-            // Create the message part
-            BodyPart messageBodyPart = new MimeBodyPart();
-            // Now set the actual message
-            messageBodyPart.setText(contenido);
-            // Create a multipar message
-            Multipart multipart = new MimeMultipart();
-            // Set text message part
-            multipart.addBodyPart(messageBodyPart);
-            // Part two is attachment
-            for(int i=0; i<rutas.size(); i++){
-                messageBodyPart = new MimeBodyPart();
-                //String filename = "archivos/imagenes/video.mkv";
-                DataSource source = new FileDataSource(rutas.get(i));
-                messageBodyPart.setDataHandler(new DataHandler(source));
-                messageBodyPart.setFileName(new File(rutas.get(i)).getName());
-                messageBodyPart.setDisposition(Part.ATTACHMENT);
-                messageBodyPart.setHeader("Content-Transfer-Encoding", "base64");
-                multipart.addBodyPart(messageBodyPart);
-            }
-            // Send the complete message parts
-            message.setContent(multipart);
-            // Send message
-            Transport.send(message);
-            System.out.println("Se han enviado un correo con las imagenes solicitadas");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-**/
-
 }
